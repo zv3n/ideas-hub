@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Nav = styled.nav`
+  z-index: 2;
   display: flex;
   height: 40px;
   background: white;
