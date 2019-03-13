@@ -9,7 +9,7 @@ const Nav = styled.nav`
   color: black;
 `
 
-const Button = styled.nav`
+const NavItem = styled.nav`
   display: flex;
   height: 40px;
   width: 60px;
@@ -26,9 +26,9 @@ const Button = styled.nav`
 export default function Header() {
   return (
     <Nav>
-      <Button>Ideas</Button>
-      <Button>Boards</Button>
-      <Button>Settings</Button>
+      <NavItem>Ideas</NavItem>
+      <NavItem>Boards</NavItem>
+      <NavItem>Settings</NavItem>
     </Nav>
   )
 }
