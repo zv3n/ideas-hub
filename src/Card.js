@@ -22,15 +22,11 @@ const StyledText = styled.p`
   font-size: 12px;
 `
 
-export default function Card() {
+export default function Card({ title, subtitle }) {
   return (
     <Grid>
-      <StyledHeadline>Reich werden und zwar sofort</StyledHeadline>
-      <StyledText>
-        Alle Menschen sollen mir Geld auf mein Konto ueberweisen.Alle Menschen
-        sollen mir Geld auf mein Konto ueberweisen.Alle Menschen sollen mir Geld
-        auf mein Konto ueberweisen.Alle Menschen sollen mir Geld auf mein Konto
-      </StyledText>
+      <StyledHeadline>{title}</StyledHeadline>
+      <StyledText>{subtitle}</StyledText>
       <img src="" alt="" />
     </Grid>
   )
