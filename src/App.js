@@ -1,25 +1,27 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Card from './Card'
-import Header from './Header'
+import GlobalStyle from './GlobalStyle'
+
 import Buttons from './Button'
 
 const Grid = styled.div`
-  display: grid;
-  position: absolute;
-  grid-template-rows: 40px 1fr 100px;
-  top: 0;
-  left: 0;
+  display: flex;
+  align-self: auto;
   width: 100vw;
-  background: white;
   height: 100vh;
+  background-color: red;
 `
 
 const CardContainer = styled.section`
-  display: grid;
-  grid-auto-rows: auto;
-  overflow-y: scroll;
-  margin-top: 1px;
+  background: lightblue;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png')
+      39 39,
+    auto;
 `
 
 function App() {
@@ -33,14 +35,12 @@ function App() {
   return (
     <React.Fragment>
       <Grid>
-        <Header />
         <CardContainer>
-          {cards.map((card, index) => (
-            <Card title={card.title} subtitle={card.subtitle} key={index} />
-          ))}
+          <Card />
         </CardContainer>
         <Buttons renderNewCard={renderNewCard} />
       </Grid>
+      <GlobalStyle />
     </React.Fragment>
   )
 }
