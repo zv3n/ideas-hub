@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
 const DownSection = styled.div`
   display: flex;
   align-items: flex-end;
@@ -22,10 +24,12 @@ const Button = styled.button`
   z-index: 9;
 `
 
-export default function Buttons({ renderNewCard }) {
+export default function Buttons() {
   return (
     <DownSection>
-      <Button onClick={() => renderNewCard()}>ADD</Button>
+      <Link to="/NewCardInputForm">
+        <Button>ADD</Button>
+      </Link>
     </DownSection>
   )
 }
