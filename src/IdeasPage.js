@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+
 import styled from 'styled-components'
 import Card from './Card'
 import GlobalStyle from './GlobalStyle'
@@ -12,37 +13,27 @@ const Grid = styled.div`
   align-self: auto;
   width: 100vw;
   height: 100vh;
-  background-color: blue;
+  background-color: greenyellow;
 `
 
 const CardContainer = styled.section`
   display: flex;
   align-items: flex-start;
   position: relative;
-  background: lightblue;
+  background: greenyellow;
   overflow: hidden;
   width: 100%;
   height: 100%;
-  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png')
-      39 39,
-    auto;
 `
 
 function IdeasPage() {
-  const [cards, setCards] = useState([{ title: 'test', subtitle: 'copy' }])
-
-  function renderNewCard() {
-    setCards([...cards, { title: 'test', subtitle: 'copy' }])
-    console.log('test')
-  }
-
   return (
     <React.Fragment>
       <Grid>
         <CardContainer>
           <Card />
         </CardContainer>
-        <Buttons renderNewCard={renderNewCard} />
+        <Buttons />
       </Grid>
       <GlobalStyle />
     </React.Fragment>

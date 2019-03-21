@@ -1,5 +1,8 @@
-import styled from 'styled-components'
 import React from 'react'
+import styled from 'styled-components'
+
+import { Link } from 'react-router-dom'
+
 const Grid = styled.div`
   display: grid;
   grid-template-rows: auto auto auto auto;
@@ -64,16 +67,29 @@ const TextInput = styled.textarea`
   outline: none;
 `
 
-export default function NewCardInputForm({ renderNewCard }) {
+export default function NewCardInputForm({ data, onSubmit, onChange }) {
   return (
     <Grid>
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Label>Text Label</Label>
-        <Input type="text" name="name" placeholder="Text Input" />
+        <Input
+          value={data.title}
+          onChange={onChange}
+          type="text"
+          name="title"
+          placeholder="Text Input"
+        />
         <Label>Text Label</Label>
-        <TextInput name="comments" placeholder="Text area comments" />
-        <Button onClick={() => renderNewCard()}>ADD</Button>
-        <Button onClick={() => renderNewCard()}>ADD</Button>
+        <TextInput
+          value={data.comments}
+          onChange={onChange}
+          name="comments"
+          placeholder="Text area comments"
+        />
+        <Button>ADD</Button>
+        <Link to="/">
+          <Button>ABORT</Button>
+        </Link>
       </Form>
     </Grid>
   )

@@ -42,10 +42,6 @@ const StyledCardInside = styled(animated.section)`
     0 10px 10px -10px rgba(50, 50, 73, 0.3);
 `
 
-const StyledHeadline = styled.p``
-
-const StyledText = styled.p``
-
 const to = i => ({
   x: 0,
   y: i * -4,
