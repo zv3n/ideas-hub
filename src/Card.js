@@ -4,18 +4,23 @@ import { useGesture } from 'react-with-gesture'
 import styled from 'styled-components'
 
 const cardsImage = [
-  'https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/9/9b/RWS_Tarot_07_Chariot.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/690px-RWS_Tarot_02_High_Priestess.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg',
+  'https://images.unsplash.com/photo-1548946522-4a313e8972a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2080&q=80',
+  'https://images.unsplash.com/photo-1540981493580-8ea1113e9968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80',
+  'https://images.unsplash.com/photo-1549611016-3a70d82b5040?ixlib=rb-1.2.1&auto=format&fit=crop&w=2032&q=80',
+  'https://images.unsplash.com/photo-1534193561958-40bfcd20ee4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
+  'https://images.unsplash.com/photo-1520073201527-6b044ba2ca9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=955&q=80',
+  'https://images.unsplash.com/photo-1537185664194-89a481f7fcfb?ixlib=rb-1.2.1&auto=format&fit=crop&w=924&q=80',
+  'https://images.unsplash.com/photo-1534790566855-4cb788d389ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80',
+  'https://images.unsplash.com/photo-1529042222786-e26b38309122?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=933&q=80',
+  'https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=2251&q=80',
+  'https://images.unsplash.com/photo-1504185945330-7a3ca1380535?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=921&q=80,',
 ]
 
 const StyledCardOutside = styled(animated.section)`
   position: absolute;
+  top: 0;
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   will-change: transform;
   display: flex;
   align-items: center;
@@ -24,18 +29,22 @@ const StyledCardOutside = styled(animated.section)`
 
 const StyledCardInside = styled(animated.section)`
   background-color: red;
-  background-size: auto 85%;
+  background-size: 85% 85%;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 45vh;
+  width: 38vh;
   max-width: 300px;
-  height: 85vh;
+  height: 64vh;
   max-height: 570px;
   will-change: transform;
-  border-radius: 10px;
+  border-radius: 1px;
   box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
     0 10px 10px -10px rgba(50, 50, 73, 0.3);
 `
+
+const StyledHeadline = styled.p``
+
+const StyledText = styled.p``
 
 const to = i => ({
   x: 0,
@@ -102,7 +111,9 @@ export default function Card({ subtitle }) {
             transform: interpolate([rot, scale], trans),
             backgroundImage: `url(${cardsImage[i]})`,
           }}
-        />
+        >
+          Ich bin ein Text der super informativ ist!!
+        </StyledCardInside>
       </StyledCardOutside>
     </React.Fragment>
   ))

@@ -6,16 +6,20 @@ import GlobalStyle from './GlobalStyle'
 import Buttons from './Button'
 
 const Grid = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-gap: 2px;
   align-self: auto;
   width: 100vw;
   height: 100vh;
-  background-color: red;
+  background-color: blue;
 `
 
 const CardContainer = styled.section`
+  display: flex;
+  align-items: flex-start;
+  position: relative;
   background: lightblue;
-  position: fixed;
   overflow: hidden;
   width: 100%;
   height: 100%;

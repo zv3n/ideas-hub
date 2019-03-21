@@ -17,7 +17,7 @@ const Button = styled.button`
   text-align: center;
   font-size: auto;
   border: none;
-  box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 0 #000, 10px 10px 0 #2e2e2e, 15px 15px 0 #585858;
   outline: none;
   z-index: 9;
 `
