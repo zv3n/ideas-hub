@@ -26,12 +26,12 @@ const CardContainer = styled.section`
   height: 100%;
 `
 
-function IdeasPage() {
+function IdeasPage({ cards }) {
   return (
     <React.Fragment>
       <Grid>
         <CardContainer>
-          <Card />
+          <Card cards={cards} />
         </CardContainer>
         <Buttons />
       </Grid>
