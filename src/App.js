@@ -1,47 +1,45 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import Card from './Card'
-import Header from './Header'
-import Buttons from './Button'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import IdeasPage from './IdeasPage'
+import NewCardInputForm from './NewCardInputForm'
 
-const Grid = styled.div`
-  display: grid;
-  position: absolute;
-  grid-template-rows: 40px 1fr 100px;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  background: white;
-  height: 100vh;
-`
-
-const CardContainer = styled.section`
-  display: grid;
-  grid-auto-rows: auto;
-  overflow-y: scroll;
-  margin-top: 1px;
-`
+const defaultCards = [
+  {
+    title: '',
+    comments: '',
+  },
+]
 
 function App() {
-  const [cards, setCards] = useState([{ title: 'test', subtitle: 'copy' }])
+  const [cards, setCards] = useState(defaultCards)
+  const [cardsInput, setCardsInput] = useState([])
 
-  function renderNewCard() {
-    setCards([...cards, { title: 'test', subtitle: 'copy' }])
-    console.log('test')
+  function onInputChange(event) {
+    setCardsInput([...cardsInput, { [event.target.name]: event.target.value }])
+  }
+
+  function onSubmit(event) {
+    event.preventDefault()
+    setCards([...cards, { [event.target.name]: event.target.value }])
+    console.log(cards)
   }
 
   return (
-    <React.Fragment>
-      <Grid>
-        <Header />
-        <CardContainer>
-          {cards.map((card, index) => (
-            <Card title={card.title} subtitle={card.subtitle} key={index} />
-          ))}
-        </CardContainer>
-        <Buttons renderNewCard={renderNewCard} />
-      </Grid>
-    </React.Fragment>
+    <Router>
+      <React.Fragment>
+        <Route exact path="/" render={() => <IdeasPage cards={cards} />} />
+        <Route
+          path="/NewCardInputForm"
+          render={() => (
+            <NewCardInputForm
+              data={cards}
+              onSubmit={onSubmit}
+              onChange={onInputChange}
+            />
+          )}
+        />
+      </React.Fragment>
+    </Router>
   )
 }
 
