@@ -4,7 +4,7 @@ import axios from 'axios'
 const ideasPath = `http://localhost:5000`
 
 export function getAllIdeas() {
-  return axios.get(ideasPath)
+  return axios.get(`${ideasPath}/ideas/getall`)
 }
 
 export function postNewIdea(idea) {

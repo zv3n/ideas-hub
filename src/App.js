@@ -33,7 +33,7 @@ function App() {
   return (
     <Router>
       <React.Fragment>
-        <Route exact path="/" render={() => <IdeasPage cards={cards} />} />
+        <Route exact path="/" component={IdeasPage} />
         <Route
           path="/NewCardInputForm"
           render={() => (
