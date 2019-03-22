@@ -27,8 +27,6 @@ const CardContainer = styled.section`
 `
 
 function IdeasPage({ cards }) {
-  const
-
   return (
     <React.Fragment>
       <Grid>
