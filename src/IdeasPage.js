@@ -27,19 +27,29 @@ const CardContainer = styled.section`
 
 function IdeasPage() {
   const [ideas, setIdeas] = useState([])
-
+  const [initialized, setInitialized] = useState(false)
   useEffect(() => {
     getAllIdeas()
-      .then(res => setIdeas(res.data))
+      .then(res => {
+        setIdeas(res.data)
+        setInitialized(true)
+      })
       .catch(res => console.log('error'))
-  })
+  }, [])
+
+  function CardComponent() {
+    if (initialized === true) {
+      return <Card cards={ideas} />
+    } else {
+      return <div>LOADING</div>
+    }
+  }
 
   return (
     <React.Fragment>
       <Grid>
-        <CardContainer>
-          <Card cards={ideas} />
-        </CardContainer>
+        <CardContainer />
+        <CardComponent />
         <Buttons />
       </Grid>
       <GlobalStyle />

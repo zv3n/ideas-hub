@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSprings, animated, interpolate } from 'react-spring'
 import { useGesture } from 'react-with-gesture'
 import styled from 'styled-components'
@@ -60,6 +60,7 @@ export default function Card({ cards }) {
     ...to(i),
     from: from(i),
   }))
+  console.log(props)
   const bind = useGesture(
     ({
       args: [index],
@@ -90,6 +91,7 @@ export default function Card({ cards }) {
         setTimeout(() => gone.clear() || set(i => to(i)), 600)
     }
   )
+  console.log(cards)
   return props.map(({ x, y, rot, scale }, i) => (
     <React.Fragment>
       <StyledCardOutside
@@ -108,8 +110,8 @@ export default function Card({ cards }) {
             backgroundImage: `url(${cardsImage})`,
           }}
         >
-          {cards.title}
-          {cards.comments}
+          {cards[i].title}
+          {cards[i].comment}
         </StyledCardInside>
       </StyledCardOutside>
     </React.Fragment>
