@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { getAllIdeas } from './services'
 import styled from 'styled-components'
 import Card from './Card'
 import GlobalStyle from './GlobalStyle'
@@ -27,6 +27,8 @@ const CardContainer = styled.section`
 `
 
 function IdeasPage({ cards }) {
+  const
+
   return (
     <React.Fragment>
       <Grid>
