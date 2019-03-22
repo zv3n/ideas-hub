@@ -4,7 +4,7 @@ import { useGesture } from 'react-with-gesture'
 import styled from 'styled-components'
 
 const cardsImage = [
-  'https://images.unsplash.com/photo-1548946522-4a313e8972a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2080&q=80',
+  'https://images.unsplash.com/photo-1504185945330-7a3ca1380535?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=921&q=80',
   /*'https://images.unsplash.com/photo-1540981493580-8ea1113e9968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80',
   'https://images.unsplash.com/photo-1549611016-3a70d82b5040?ixlib=rb-1.2.1&auto=format&fit=crop&w=2032&q=80',
   'https://images.unsplash.com/photo-1534193561958-40bfcd20ee4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
