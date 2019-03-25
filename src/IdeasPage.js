@@ -12,7 +12,9 @@ const Grid = styled.div`
   align-self: auto;
   width: 100vw;
   height: 100vh;
-  background-color: #78ff00;
+  background: url('https://media.giphy.com/media/l2SpQEQWpQ1dZgek0/giphy.gif')
+    no-repeat center center fixed;
+  background-size: cover;
   border: 10px solid pink;
   border-image: repeating-linear-gradient(
       45deg,

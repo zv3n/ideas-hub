@@ -16,6 +16,9 @@ const Grid = styled.div`
 
 const Form = styled.form`
   border: 10px solid pink;
+  background: url('https://media.giphy.com/media/BlcWQ9L2VfOFO/giphy.gif')
+    no-repeat center center fixed;
+  background-size: cover;
   border-image: repeating-linear-gradient(
       45deg,
       #d8d8d8,
@@ -26,7 +29,6 @@ const Form = styled.form`
     10;
   padding: 1em;
   color: #808080 !important;
-  background-color: #78ff00 !important;
 
   margin-top: 0em;
   outline: none;
