@@ -28,18 +28,38 @@ const StyledCardOutside = styled(animated.section)`
 `
 
 const StyledCardInside = styled(animated.section)`
-  background-color: red;
+  background-color: #ff0080;
   background-size: 85% 85%;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 38vh;
+  width: 34vh;
   max-width: 300px;
-  height: 64vh;
+  margin-right: 3vw;
+  height: 60vh;
   max-height: 570px;
   will-change: transform;
   border-radius: 1px;
   box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
     0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  position: relative;
+`
+
+const StyledHeadline = styled.p`
+  color: white;
+  font-weight: bolder;
+  font-size: 1.2em;
+  position: absolute;
+  top: 15px;
+  left: 40%;
+`
+
+const StyledComment = styled.p`
+  color: white;
+  font-weight: bolder;
+  font-size: 1.2em;
+  position: absolute;
+  bottom: 15px;
+  left: 10%;
 `
 
 const to = i => ({
@@ -51,8 +71,7 @@ const to = i => ({
 })
 const from = i => ({ x: 0, y: i * -4, rot: 0, scale: 1.5, y: -1000 })
 const trans = (r, s) =>
-  `perspective(1500px) rotateX(30deg) rotateY(${r /
-    10}deg) rotateZ(${r}deg) scale(${s})`
+  ` rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
 
 export default function Card({ cards }) {
   const [gone] = useState(() => new Set())
@@ -110,8 +129,8 @@ export default function Card({ cards }) {
             backgroundImage: `url(${cardsImage})`,
           }}
         >
-          {cards[i].title}
-          {cards[i].comment}
+          <StyledHeadline>{cards[i].title}</StyledHeadline>
+          <StyledComment>{cards[i].comment}</StyledComment>
         </StyledCardInside>
       </StyledCardOutside>
     </React.Fragment>

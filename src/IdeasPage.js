@@ -12,15 +12,19 @@ const Grid = styled.div`
   align-self: auto;
   width: 100vw;
   height: 100vh;
-  background-color: greenyellow;
+  background-color: #78ff00;
+  border: 10px solid pink;
+  border-image: repeating-linear-gradient(
+      45deg,
+      #d8d8d8,
+      #d8d8d8 1%,
+      #ffffff 1%,
+      #424242 8%
+    )
+    10;
 `
 
 const CardContainer = styled.section`
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-  background: greenyellow;
-  overflow: hidden;
   width: 100%;
   height: 100%;
 `
