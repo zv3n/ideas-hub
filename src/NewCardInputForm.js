@@ -80,6 +80,7 @@ export default function NewCardInputForm({ data, onSubmit, onChange }) {
           type="text"
           name="title"
           placeholder="Text Input"
+          maxLenght="10"
         />
         <Label>Text Label</Label>
         <TextInput

@@ -12,7 +12,7 @@ function App() {
     setCardsInput([...cardsInput, { [event.target.name]: event.target.value }])
   }
 
-  function onSubmit(event) {
+  function onSubmit(event, history) {
     event.preventDefault()
 
     setCards([
@@ -28,6 +28,9 @@ function App() {
       comment: event.target.comments.value,
     }
     postNewIdea(newCard)
+
+    history.push('/')
+    //window.location.assign('/create')
   }
 
   return (
@@ -36,10 +39,10 @@ function App() {
         <Route exact path="/" component={IdeasPage} />
         <Route
           path="/NewCardInputForm"
-          render={() => (
+          render={({ history }) => (
             <NewCardInputForm
               data={cards}
-              onSubmit={onSubmit}
+              onSubmit={e => onSubmit(e, history)}
               onChange={onInputChange}
             />
           )}
