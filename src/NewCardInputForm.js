@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import { Link } from 'react-router-dom'
 
 const Grid = styled.div`
@@ -68,6 +67,11 @@ const TextInput = styled.textarea`
 `
 
 export default function NewCardInputForm({ data, onSubmit, onChange }) {
+  /*function sentToBackend(event) {
+    event.preventDefault()
+    console.log(event)
+  }*/
+
   return (
     <Grid>
       <Form onSubmit={onSubmit}>

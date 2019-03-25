@@ -1,10 +1,9 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import Buttons from './Button'
 import Card from './Card'
 import GlobalStyle from './GlobalStyle'
-
-import Buttons from './Button'
+import { getAllIdeas } from './services'
 
 const Grid = styled.div`
   display: grid;
@@ -26,13 +25,31 @@ const CardContainer = styled.section`
   height: 100%;
 `
 
-function IdeasPage({ cards }) {
+function IdeasPage() {
+  const [ideas, setIdeas] = useState([])
+  const [initialized, setInitialized] = useState(false)
+  useEffect(() => {
+    getAllIdeas()
+      .then(res => {
+        setIdeas(res.data)
+        setInitialized(true)
+      })
+      .catch(res => console.log('error'))
+  }, [])
+
+  function CardComponent() {
+    if (initialized === true) {
+      return <Card cards={ideas} />
+    } else {
+      return <div>LOADING</div>
+    }
+  }
+
   return (
     <React.Fragment>
       <Grid>
-        <CardContainer>
-          <Card cards={cards} />
-        </CardContainer>
+        <CardContainer />
+        <CardComponent />
         <Buttons />
       </Grid>
       <GlobalStyle />

@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import IdeasPage from './IdeasPage'
+import { postNewIdea } from './services'
 import NewCardInputForm from './NewCardInputForm'
 
-const defaultCards = [
-  {
-    title: '',
-    comments: '',
-  },
-]
-
 function App() {
-  const [cards, setCards] = useState(defaultCards)
+  const [cards, setCards] = useState([])
   const [cardsInput, setCardsInput] = useState([])
 
   function onInputChange(event) {
@@ -20,14 +14,26 @@ function App() {
 
   function onSubmit(event) {
     event.preventDefault()
-    setCards([...cards, { [event.target.name]: event.target.value }])
-    console.log(cards)
+
+    setCards([
+      ...cards,
+      {
+        title: event.target.title.value,
+        comment: event.target.comments.value,
+      },
+    ])
+
+    const newCard = {
+      title: event.target.title.value,
+      comment: event.target.comments.value,
+    }
+    postNewIdea(newCard)
   }
 
   return (
     <Router>
       <React.Fragment>
-        <Route exact path="/" render={() => <IdeasPage cards={cards} />} />
+        <Route exact path="/" component={IdeasPage} />
         <Route
           path="/NewCardInputForm"
           render={() => (
