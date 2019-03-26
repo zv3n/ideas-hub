@@ -75,21 +75,21 @@ export default function NewCardInputForm({ data, onSubmit, onChange }) {
   return (
     <Grid>
       <Form onSubmit={onSubmit}>
-        <Label>Text Label</Label>
+        <Label>NAME YOUR IDEA</Label>
         <Input
           value={data.title}
           onChange={onChange}
           type="text"
           name="title"
-          placeholder="Text Input"
+          placeholder="Name"
           maxLenght="10"
         />
-        <Label>Text Label</Label>
+        <Label>WHAT IS YOUR IDEA ABOUT</Label>
         <TextInput
           value={data.comments}
           onChange={onChange}
           name="comments"
-          placeholder="Text area comments"
+          placeholder="Description"
         />
 
         <Button>ADD</Button>
