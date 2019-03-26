@@ -11,13 +11,13 @@ const DownSection = styled.div`
 const Button = styled.button`
   height: 50px;
   width: 200px;
-  margin: 20px;
+  margin-bottom: 35px;
   background: blueviolet;
   color: white;
-  bottom: 100px;
-  left: 150px;
+  margin-right: 9vw;
   text-align: center;
-  font-size: auto;
+  font-size: 1.5em;
+  font-weight: bolder;
   border: none;
   box-shadow: 5px 5px 0 #000, 10px 10px 0 #2e2e2e, 15px 15px 0 #585858;
   outline: none;
@@ -28,7 +28,7 @@ export default function Buttons() {
   return (
     <DownSection>
       <Link to="/NewCardInputForm">
-        <Button>ADD</Button>
+        <Button>ADD IDEA</Button>
       </Link>
     </DownSection>
   )

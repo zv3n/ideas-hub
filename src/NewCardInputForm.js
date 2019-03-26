@@ -4,16 +4,21 @@ import { Link } from 'react-router-dom'
 
 const Grid = styled.div`
   display: grid;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto;
   grid-gap: 2px;
   align-self: auto;
   width: 100vw;
   height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
 `
 
 const Form = styled.form`
-  box-shadow: 8px 8px 0 #000;
   border: 10px solid pink;
+  background: url('https://media.giphy.com/media/BlcWQ9L2VfOFO/giphy.gif')
+    no-repeat center center fixed;
+  background-size: cover;
   border-image: repeating-linear-gradient(
       45deg,
       #d8d8d8,
@@ -24,14 +29,12 @@ const Form = styled.form`
     10;
   padding: 1em;
   color: #808080 !important;
-  background-color: greenyellow !important;
-  box-sizing: inherit;
+
   margin-top: 0em;
   outline: none;
 `
 const Label = styled.label`
   font-weight: 900;
-  box-sizing: inherit;
 `
 const Input = styled.input`
   padding: 0.4em;
@@ -51,7 +54,9 @@ const Button = styled.button`
   bottom: 100px;
   left: 150px;
   text-align: center;
-  font-size: auto;
+
+  font-size: 1.5em;
+  font-weight: bolder;
   border: none;
   box-shadow: 5px 5px 0 #000, 10px 10px 0 #2e2e2e, 15px 15px 0 #585858;
   outline: none;
@@ -67,29 +72,26 @@ const TextInput = styled.textarea`
 `
 
 export default function NewCardInputForm({ data, onSubmit, onChange }) {
-  /*function sentToBackend(event) {
-    event.preventDefault()
-    console.log(event)
-  }*/
-
   return (
     <Grid>
       <Form onSubmit={onSubmit}>
-        <Label>Text Label</Label>
+        <Label>NAME YOUR IDEA</Label>
         <Input
           value={data.title}
           onChange={onChange}
           type="text"
           name="title"
-          placeholder="Text Input"
+          placeholder="Name"
+          maxLenght="10"
         />
-        <Label>Text Label</Label>
+        <Label>WHAT IS YOUR IDEA ABOUT</Label>
         <TextInput
           value={data.comments}
           onChange={onChange}
           name="comments"
-          placeholder="Text area comments"
+          placeholder="Description"
         />
+
         <Button>ADD</Button>
         <Link to="/">
           <Button>ABORT</Button>
