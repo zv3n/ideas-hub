@@ -7,7 +7,18 @@ export function getAllIdeas() {
   return axios.get(`${ideasPath}/ideas/getall`)
 }
 
+export function getIdea(id) {
+  return axios.get(`${ideasPath}/ideas/${id}`)
+}
+
 export function postNewIdea(idea) {
-  console.log('huhu')
   return axios.post(`${ideasPath}/ideas/create`, idea)
+}
+
+export function updateIdea(idea) {
+  return axios.patch(`${ideasPath}/ideas/${idea._id}`, idea)
+}
+
+export function deleteIdeaFromServer(id) {
+  return axios.delete(`${ideasPath}/ideas/${id}`)
 }

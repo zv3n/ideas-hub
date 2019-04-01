@@ -31,12 +31,13 @@ const CardContainer = styled.section`
   height: 100%;
 `
 
-function IdeasPage() {
+function IdeasPage({ setCardToUpdate, history }) {
   const [ideas, setIdeas] = useState([])
   const [initialized, setInitialized] = useState(false)
   useEffect(() => {
     getAllIdeas()
       .then(res => {
+        console.log(res.data)
         setIdeas(res.data)
         setInitialized(true)
       })
@@ -45,7 +46,13 @@ function IdeasPage() {
 
   function CardComponent() {
     if (initialized === true) {
-      return <Card cards={ideas} />
+      return (
+        <Card
+          setCardToUpdate={setCardToUpdate}
+          history={history}
+          cards={ideas}
+        />
+      )
     } else {
       return <div>LOADING</div>
     }
