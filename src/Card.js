@@ -73,7 +73,7 @@ const from = i => ({ x: 0, y: i * -4, rot: 0, scale: 1.5, y: -1000 })
 const trans = (r, s) =>
   ` rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
 
-export default function Card({ cards }) {
+export default function Card({ cards, setCardToUpdate, history }) {
   const [gone] = useState(() => new Set())
   const [props, set] = useSprings(cards.length, i => ({
     ...to(i),
@@ -110,6 +110,10 @@ export default function Card({ cards }) {
         setTimeout(() => gone.clear() || set(i => to(i)), 600)
     }
   )
+  function onClickHandler(index) {
+    setCardToUpdate(cards[index]._id)
+    history.push(`/CardEditForm/${cards[index]._id}`)
+  }
   console.log(cards)
   return props.map(({ x, y, rot, scale }, i) => (
     <React.Fragment>
@@ -123,6 +127,7 @@ export default function Card({ cards }) {
         }}
       >
         <StyledCardInside
+          onClick={() => onClickHandler(i)}
           {...bind(i)}
           style={{
             transform: interpolate([rot, scale], trans),

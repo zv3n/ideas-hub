@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { getIdea } from './services'
 
 const Grid = styled.div`
   display: grid;
@@ -71,15 +72,31 @@ const TextInput = styled.textarea`
   outline: none;
 `
 
-export default function NewCardInputForm({ onSubmit, history }) {
-  const [input, setInput] = useState({ title: '', comment: '' })
+export default function CardEditForm({ onUpdate, history, match, deleteCard }) {
+  const [cardToUpdate, setCardToUpdate] = useState({ title: '', comment: '' })
+  useEffect(() => {
+    getIdea(match.params.id)
+      .then(res => {
+        setCardToUpdate(res.data)
+        console.log(res.data)
+        setInput({
+          title: res.data.title,
+          comment: res.data.comment,
+          ...res.data,
+        })
+      })
+      .catch(res => console.log('error'))
+  }, [])
+
+  const initialInput = { title: '', comment: '' }
+  const [input, setInput] = useState(initialInput)
   function onChangeHandler(event) {
     setInput({ ...input, [event.target.name]: event.target.value })
   }
 
   function onSubmitHandler(event) {
     event.preventDefault()
-    onSubmit(input, history)
+    onUpdate(input, history)
   }
 
   return (
@@ -96,13 +113,16 @@ export default function NewCardInputForm({ onSubmit, history }) {
         />
         <Label>WHAT IS YOUR IDEA ABOUT</Label>
         <TextInput
-          value={input.comments}
+          value={input.comment}
           onChange={onChangeHandler}
           name="comment"
           placeholder="Description"
         />
 
-        <Button>ADD</Button>
+        <Button>EDIT</Button>
+        <Button onClick={() => deleteCard(match.params.id, history)}>
+          DELETE
+        </Button>
         <Link to="/">
           <Button>ABORT</Button>
         </Link>
