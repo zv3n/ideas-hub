@@ -17,15 +17,15 @@ const Grid = styled.div`
 
 const Form = styled.form`
   border: 10px solid pink;
-  background: url('https://media.giphy.com/media/BlcWQ9L2VfOFO/giphy.gif')
+  background: url('https://media.giphy.com/media/3o6fIREk4oFn9yb6ZW/source.gif')
     no-repeat center center fixed;
   background-size: cover;
   border-image: repeating-linear-gradient(
       45deg,
       #d8d8d8,
       #d8d8d8 1%,
-      #424242 1%,
-      #424242 8%
+      #425242 1%,
+      #6b23ad 4%
     )
     10;
   padding: 1em;

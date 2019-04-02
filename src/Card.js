@@ -31,10 +31,10 @@ const StyledCardInside = styled(animated.section)`
   background-size: 85% 85%;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 34vh;
+  width: 36vh;
   max-width: 300px;
   margin-right: 3vw;
-  height: 60vh;
+  height: 66vh;
   max-height: 570px;
   will-change: transform;
   border-radius: 1px;

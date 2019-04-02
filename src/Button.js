@@ -11,7 +11,7 @@ const DownSection = styled.div`
 const Button = styled.button`
   height: 50px;
   width: 200px;
-  margin-bottom: 35px;
+  margin-bottom: 45px;
   background: blueviolet;
   color: white;
   margin-right: 9vw;
