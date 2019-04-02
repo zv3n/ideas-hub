@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { imageUpload } from './services'
 
 const Grid = styled.div`
   display: grid;
@@ -72,9 +73,17 @@ const TextInput = styled.textarea`
 `
 
 export default function NewCardInputForm({ onSubmit, history }) {
-  const [input, setInput] = useState({ title: '', comment: '' })
+  const [input, setInput] = useState({ title: '', comment: '', image: '' })
   function onChangeHandler(event) {
     setInput({ ...input, [event.target.name]: event.target.value })
+  }
+
+  const [image, setImage] = useState('')
+
+  async function fileHandler(event) {
+    const response = await imageUpload(event)
+    setImage(response.data.url)
+    setInput({ ...input, image: response.data.url })
   }
 
   function onSubmitHandler(event) {
@@ -101,7 +110,13 @@ export default function NewCardInputForm({ onSubmit, history }) {
           name="comment"
           placeholder="Description"
         />
-
+        <div>
+          {image ? (
+            <img src={image} alt="" style={{ width: '100%' }} />
+          ) : (
+            <input type="file" name="file" onChange={fileHandler} />
+          )}
+        </div>
         <Button>ADD</Button>
         <Link to="/">
           <Button>ABORT</Button>

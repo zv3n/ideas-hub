@@ -3,7 +3,7 @@ import { useSprings, animated, interpolate } from 'react-spring'
 import { useGesture } from 'react-with-gesture'
 import styled from 'styled-components'
 
-const cardsImage = [
+/*const cardsImage = [
   'https://images.unsplash.com/photo-1504185945330-7a3ca1380535?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=921&q=80',
   /*'https://images.unsplash.com/photo-1540981493580-8ea1113e9968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80',
   'https://images.unsplash.com/photo-1549611016-3a70d82b5040?ixlib=rb-1.2.1&auto=format&fit=crop&w=2032&q=80',
@@ -14,7 +14,6 @@ const cardsImage = [
   'https://images.unsplash.com/photo-1529042222786-e26b38309122?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=933&q=80',
   'https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=2251&q=80',
   'https://images.unsplash.com/photo-1504185945330-7a3ca1380535?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=921&q=80,',*/
-]
 
 const StyledCardOutside = styled(animated.section)`
   position: absolute;
@@ -118,7 +117,7 @@ export default function Card({ cards, setCardToUpdate, history }) {
   return props.map(({ x, y, rot, scale }, i) => (
     <React.Fragment>
       <StyledCardOutside
-        key={i}
+        key={cards[i]._id}
         style={{
           transform: interpolate(
             [x, y],
@@ -131,7 +130,8 @@ export default function Card({ cards, setCardToUpdate, history }) {
           {...bind(i)}
           style={{
             transform: interpolate([rot, scale], trans),
-            backgroundImage: `url(${cardsImage})`,
+            backgroundImage: `url(${cards[i].image})`,
+            backgroundSize: '85% 85%',
           }}
         >
           <StyledHeadline>{cards[i].title}</StyledHeadline>
