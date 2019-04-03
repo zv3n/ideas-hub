@@ -49,7 +49,9 @@ const StyledHeadline = styled.p`
   font-size: 1.2em;
   position: absolute;
   top: 15px;
-  left: 40%;
+  left: 10%;
+  right: 10%;
+  text-shadow: 1px 1px 10px #000;
 `
 
 const StyledComment = styled.p`
@@ -59,6 +61,8 @@ const StyledComment = styled.p`
   position: absolute;
   bottom: 15px;
   left: 10%;
+  right: 10%;
+  text-shadow: 1px 1px 10px #000;
 `
 
 const to = i => ({

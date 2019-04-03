@@ -36,12 +36,15 @@ const Form = styled.form`
 `
 const Label = styled.label`
   font-weight: 900;
+  color: #bcbcbc;
+  text-shadow: 1px 1px 1px #000;
 `
 const Input = styled.input`
   padding: 0.4em;
   margin: 0.25em;
+  margin-bottom: 40px;
   display: block;
-  width: 98.5%;
+  width: 93%;
   line-height: normal;
   outline: none;
 `
@@ -62,14 +65,30 @@ const Button = styled.button`
   box-shadow: 5px 5px 0 #000, 10px 10px 0 #2e2e2e, 15px 15px 0 #585858;
   outline: none;
 `
+const PhotoUpload = styled.input`
+  width: 72%;
+  height: 25px;
+  margin-bottom: 30px;
+  margin-left: 1%;
+  background: #ff02bb;
+  color: white;
+  bottom: 100px;
+  text-align: center;
+  font-weight: bolder;
+  border: none;
+  outline: none;
+  box-shadow: 5px 5px 0 #2e2e2e;
+`
 
 const TextInput = styled.textarea`
-  width: 98.5%;
-  min-height: 3em;
+  width: 93%;
+  min-height: 10em;
   padding: 0.4em;
   margin: 0.25em;
+  margin-bottom: 10px;
   overflow: auto;
   outline: none;
+  font-family: Arial, Helvetica, sans-serif;
 `
 
 export default function NewCardInputForm({ onSubmit, history }) {
@@ -93,7 +112,7 @@ export default function NewCardInputForm({ onSubmit, history }) {
 
   return (
     <Grid>
-      <Form onSubmit={onSubmitHandler}>
+      <Form onSubmit={onSubmitHandler} autocomplete="off">
         <Label>NAME YOUR IDEA</Label>
         <Input
           value={input.title}
@@ -102,6 +121,7 @@ export default function NewCardInputForm({ onSubmit, history }) {
           name="title"
           placeholder="Name"
           maxLenght="10"
+          autocomplete="off"
         />
         <Label>WHAT IS YOUR IDEA ABOUT</Label>
         <TextInput
@@ -109,12 +129,14 @@ export default function NewCardInputForm({ onSubmit, history }) {
           onChange={onChangeHandler}
           name="comment"
           placeholder="Description"
+          maxLenght="32"
+          autocomplete="off"
         />
         <div>
           {image ? (
             <img src={image} alt="" style={{ width: '100%' }} />
           ) : (
-            <input type="file" name="file" onChange={fileHandler} />
+            <PhotoUpload type="file" name="file" onChange={fileHandler} />
           )}
         </div>
         <Button>ADD</Button>
