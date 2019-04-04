@@ -3,17 +3,6 @@ import { useSprings, animated, interpolate } from 'react-spring'
 import { useGesture } from 'react-with-gesture'
 import styled from 'styled-components'
 
-/*const cardsImage = [
-  'https://images.unsplash.com/photo-1504185945330-7a3ca1380535?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=921&q=80',
-  /*'https://images.unsplash.com/photo-1540981493580-8ea1113e9968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80',
-  'https://images.unsplash.com/photo-1549611016-3a70d82b5040?ixlib=rb-1.2.1&auto=format&fit=crop&w=2032&q=80',
-  'https://images.unsplash.com/photo-1534193561958-40bfcd20ee4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
-  'https://images.unsplash.com/photo-1520073201527-6b044ba2ca9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=955&q=80',
-  'https://images.unsplash.com/photo-1537185664194-89a481f7fcfb?ixlib=rb-1.2.1&auto=format&fit=crop&w=924&q=80',
-  'https://images.unsplash.com/photo-1534790566855-4cb788d389ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80',
-  'https://images.unsplash.com/photo-1529042222786-e26b38309122?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=933&q=80',
-  'https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=2251&q=80',
-  'https://images.unsplash.com/photo-1504185945330-7a3ca1380535?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=921&q=80,',*/
 
 const StyledCardOutside = styled(animated.section)`
   position: absolute;

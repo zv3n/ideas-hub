@@ -13,7 +13,6 @@ function App() {
       setCards([...cards, response])
       history.push('/')
     })
-    //window.location.assign('/create')
   }
   function deleteCard(id, history) {
     deleteIdeaFromServer(id).then(res => {
@@ -38,7 +37,7 @@ function App() {
     })
     //window.location.assign('/create')
   }
-  const [cardToUpdate, setCardToUpdate] = useState('')
+  const [cardTopdate, setCardToUpdate] = useState('')
 
   return (
     <Router>
