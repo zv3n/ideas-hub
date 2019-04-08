@@ -17,15 +17,15 @@ const Grid = styled.div`
 
 const Form = styled.form`
   border: 10px solid pink;
-  background: url('https://media.giphy.com/media/BlcWQ9L2VfOFO/giphy.gif')
+  background: url('https://media.giphy.com/media/3o6fIREk4oFn9yb6ZW/source.gif')
     no-repeat center center fixed;
   background-size: cover;
   border-image: repeating-linear-gradient(
       45deg,
       #d8d8d8,
       #d8d8d8 1%,
-      #424242 1%,
-      #424242 8%
+      #425242 1%,
+      #6b23ad 4%
     )
     10;
   padding: 1em;
@@ -36,12 +36,15 @@ const Form = styled.form`
 `
 const Label = styled.label`
   font-weight: 900;
+  color: #bcbcbc;
+  text-shadow: 1px 1px 1px #000;
 `
 const Input = styled.input`
   padding: 0.4em;
   margin: 0.25em;
   display: block;
-  width: 98.5%;
+  width: 93%;
+  margin-bottom: 40px;
   line-height: normal;
   outline: none;
 `
@@ -64,12 +67,14 @@ const Button = styled.button`
 `
 
 const TextInput = styled.textarea`
-  width: 98.5%;
-  min-height: 3em;
+  width: 93%;
+  min-height: 5em;
   padding: 0.4em;
   margin: 0.25em;
+  margin-bottom: 40px;
   overflow: auto;
   outline: none;
+  font-family: Arial, Helvetica, sans-serif;
 `
 
 export default function CardEditForm({ onUpdate, history, match, deleteCard }) {
@@ -102,7 +107,7 @@ export default function CardEditForm({ onUpdate, history, match, deleteCard }) {
   return (
     <Grid>
       <Form onSubmit={onSubmitHandler}>
-        <Label>NAME YOUR IDEA</Label>
+        <Label>IDEA NAME</Label>
         <Input
           value={input.title}
           onChange={onChangeHandler}
@@ -110,6 +115,7 @@ export default function CardEditForm({ onUpdate, history, match, deleteCard }) {
           name="title"
           placeholder="Name"
           maxLenght="10"
+          autocomplete="off"
         />
         <Label>WHAT IS YOUR IDEA ABOUT</Label>
         <TextInput
@@ -119,13 +125,16 @@ export default function CardEditForm({ onUpdate, history, match, deleteCard }) {
           placeholder="Description"
         />
 
-        <Button>EDIT</Button>
-        <Button onClick={() => deleteCard(match.params.id, history)}>
-          DELETE
-        </Button>
+        <Button>UPDATE</Button>
         <Link to="/">
           <Button>ABORT</Button>
         </Link>
+        <Button
+          style={{ background: '#511f6d' }}
+          onClick={() => deleteCard(match.params.id, history)}
+        >
+          !! DELETE !!
+        </Button>
       </Form>
     </Grid>
   )

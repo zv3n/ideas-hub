@@ -37,7 +37,6 @@ function IdeasPage({ setCardToUpdate, history }) {
   useEffect(() => {
     getAllIdeas()
       .then(res => {
-        console.log(res.data)
         setIdeas(res.data)
         setInitialized(true)
       })

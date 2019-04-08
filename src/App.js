@@ -13,7 +13,6 @@ function App() {
       setCards([...cards, response])
       history.push('/')
     })
-    //window.location.assign('/create')
   }
   function deleteCard(id, history) {
     deleteIdeaFromServer(id).then(res => {
