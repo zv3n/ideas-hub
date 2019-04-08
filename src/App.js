@@ -37,7 +37,7 @@ function App() {
     })
     //window.location.assign('/create')
   }
-  const [cardTopdate, setCardToUpdate] = useState('')
+  const [cardToUpdate, setCardToUpdate] = useState('')
 
   return (
     <Router>
